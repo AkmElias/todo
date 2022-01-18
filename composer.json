@@ -1,0 +1,17 @@
+{
+    "name": "elias/todo",
+    "description": "Php object oriented test app",
+    "license": "GPLv2",
+    "autoload": {
+        "psr-4": {
+            "Elias\\Todo\\": "includes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AkmElias",
+            "email": "akmelias11@gmail.com"
+        }
+    ],
+    "require": {}
+}
