@@ -13,5 +13,7 @@
             "email": "akmelias11@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "ext-mysqli": "*"
+    }
 }

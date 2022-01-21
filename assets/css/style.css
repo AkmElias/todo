@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background: #789;
+}
+
+.input-group{
+    display: flex;
+    width: 450px;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.input-group .task-input{
+    width: 81%;
+    padding: 8px;
+    border-width: 0;
+    outline: 0;
+    border-radius: 2px;
+    margin-right: 5px;
+}
+
+.input-group .task-input:hover{
+    outline: 3px solid #bbbbbb;
+}
+
+.input-group .add-button{
+    padding: 8px;
+    border-radius: 5px;
+    color: #FFF;
+    background: yellowgreen;
+    box-shadow: #FFF;
+}
+.input-group .add-button:hover{
+    transition: 0.2s all linear;
+    color: #000;
+    background: #FFF;
+}
+
+.title{
+    padding: 5px;
+    color: darkorange;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.done-title{
+    padding: 5px;
+    color: darkgreen;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.todo-lists{
+    position: relative;
+    width: 450px;
+    display: flex;
+    background: #bbb;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.todo-item{
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: #FFF;
+    color: yellowgreen;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 2.5px 0 2.5px 0;
+    cursor: pointer;
+}
+
+.todo-item:hover{
+    transform: scale3d(1.03,1,1);
+    /*transform: translateZ(100px);*/
+    transition: 0.3s all ease-in;
+    color: #FFF;
+    background-color: yellowgreen;
+    z-index: 999;
+}
+.todo-item span{
+    text-align: start;
+    font-weight: bold;
+    margin: 3px;
+}
+
+.done-item{
+    width: 98%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: green;
+    color: white;
+    padding: 8px;
+    border-radius: 3px;
+    margin: 2.5px 0 2.5px 0;
+    cursor: pointer;
+}
+
+.done-icon:hover{
+    transform: scale3d(1.5, 1.05,1);
+    transition: 0.3s all linear;
+}
+
+.remove:hover{
+    transform: scale3d(1.5, 1.05,1);
+    transition: 0.3s all linear;
+}
+.done-remove:hover{
+    transform: scale3d(1.5, 1.05,1);
+    transition: 0.3s all linear;
+}
+
