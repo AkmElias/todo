@@ -24,14 +24,16 @@ $(document).ready(function (){
       }
   })
 
-    $('.delete-item').on('click', '.delete-item', function (e){
+    $(document).on('click', '.delete-task', function (e){
+        const id = $(this).data('id');
+        console.log('task_id ', id );
         setTimeout(function (){
             $.ajax({
                 method: 'POST',
                 url: "includes/Actions/Action.php",
                 data: {
                     'action': 'delete',
-                    'id': 1
+                    'id': id
                 },
                 success: function (response) {
                     console.log(response)
@@ -41,17 +43,19 @@ $(document).ready(function (){
                     console.log(error);
                 }
             })
-        },500)
+        },100)
     })
 
-    $('.delete-item').on('click', '.done-delete-item', function (e){
+    $(document).on('click', '.done-delete-task', function (e){
+        const id = $(this).data('id');
+        console.log('task_id ', id );
         setTimeout(function (){
             $.ajax({
                 method: 'POST',
                 url: "includes/Actions/Action.php",
                 data: {
                     'action': 'delete',
-                    'id': 1
+                    'id': id
                 },
                 success: function (response) {
                     console.log(response)
@@ -61,17 +65,19 @@ $(document).ready(function (){
                     console.log(error);
                 }
             })
-        },500)
+        },100)
     })
 
-    $(document).on('click', 'done-icon', function (e){
+    $(document).on('click', '.done-task', function (e){
+        const id = $(this).data('id');
+        console.log('task_id ', id );
         setTimeout(function (){
             $.ajax({
                 method: 'POST',
                 url: "includes/Actions/Action.php",
                 data: {
                     'action': 'update',
-                    'id': $(this)
+                    'id': id
                 },
                 success: function (response) {
                     console.log(response);
@@ -81,7 +87,7 @@ $(document).ready(function (){
                     console.log(error);
                 }
             })
-        },500)
+        },100)
     })
 
     function load_tasks(){
@@ -102,7 +108,7 @@ $(document).ready(function (){
                   console.log(error);
               }
           });
-      }, 500);
+      }, 100);
 
         setTimeout(() => {
             $.ajax({
@@ -121,6 +127,6 @@ $(document).ready(function (){
                     console.log(error);
                 }
             });
-        }, 500);
+        }, 100);
     }
 })

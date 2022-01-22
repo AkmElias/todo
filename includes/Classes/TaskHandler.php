@@ -19,7 +19,7 @@ class TaskHandler
 
        public function get_tasks(){
            // Perform query
-           $query = "SELECT * FROM tasks WHERE task_status = 'in_progress'";
+           $query = "SELECT * FROM tasks WHERE task_status = 'in_progress'ORDER BY task_id DESC";
 
            $results = $this->execute_query($query);
 
@@ -29,7 +29,7 @@ class TaskHandler
 
        public function get_done_tasks(){
 
-           $query = "SELECT * FROM tasks WHERE task_status != 'in_progress'";
+           $query = "SELECT * FROM tasks WHERE task_status != 'in_progress' ORDER BY task_id DESC";
            $results = $this->execute_query($query);
 
            $html = $this->get_done_tasks_html($results);
@@ -38,29 +38,41 @@ class TaskHandler
        }
 
        public function get_tasks_html($results){
+
            $html = '';
-           while($task = $results->fetch_object()){
-               $html .= '<div class="todo-item">';
-               $html .= '<p>'. $task->task_title  .'</p>';
-               $html .= '<div class="todo-item-actions">';
-               $html .= '<span><i class="fa fa-check done-icon" style="color: green;"></i></span>';
-               $html .= '<span class="delete-item"><i class="fa fa-times remove" style="color: red;"></i></span>';
-               $html .= '</div>';
-               $html .= '</div>';
+
+           if(mysqli_num_rows($results)<=0){
+               $html .= '<p class="todo-item"> No Completed Tasks found </p>';
+           } else {
+               while($task = $results->fetch_object()){
+                   $html .= '<div class="todo-item">';
+                   $html .= '<p>'. $task->task_title  .'</p>';
+                   $html .= '<div class="todo-item-actions">';
+                   $html .= '<span class="done-task" data-id="'.$task->task_id .'"><i class="fa fa-check done-icon" style="color: green;"></i></span>';
+                   $html .= '<span class="delete-task" data-id="'.$task->task_id .'"><i class="fa fa-times remove" style="color: red;"></i></span>';
+                   $html .= '</div>';
+                   $html .= '</div>';
+               }
            }
 
            return $html;
        }
 
     public function get_done_tasks_html($results){
+
         $html = '';
-        while($task = $results->fetch_object()){
-            $html .= '<div class="done-item">';
-            $html .= '<p>'. $task->task_title  .'</p>';
-            $html .= '<div class="todo-item-actions">';
-            $html .= '<span class="done-delete-item"><i class="fa fa-times done-remove" style="color: red;"></i></span>';
-            $html .= '</div>';
-            $html .= '</div>';
+
+        if(mysqli_num_rows($results)<=0){
+            $html .= '<p class="done-item"> No Completed Tasks found </p>';
+        } else {
+            while($task = $results->fetch_object()){
+                $html .= '<div class="done-item">';
+                $html .= '<p>'. $task->task_title  .'</p>';
+                $html .= '<div class="todo-item-actions">';
+                $html .= '<span class="done-delete-task" data-id="'.$task->task_id .'"><i class="fa fa-times done-remove" style="color: red;"></i></span>';
+                $html .= '</div>';
+                $html .= '</div>';
+            }
         }
 
         return $html;
