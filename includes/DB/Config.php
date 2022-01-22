@@ -2,10 +2,9 @@
 
 namespace Elias\Todo\DB;
 
-use Elias\Todo\Classes;
 use Elias\Todo\respondToDatabaseConnection;
 
-class Config
+class Config implements respondToDatabaseConnection
 {
     protected $servername = 'localhost';
     protected $username = 'root';
@@ -19,15 +18,9 @@ class Config
 
     }
 
-
     protected function connectDatabase(){
 
         $this->conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbname);
-
-//        $query = "SELECT * FROM tasks";
-//        $results = mysqli_query($this->conn, $query);
-//
-//        var_dump($results);
 
         if($this->conn->connect_error){
             $this->failedResponseToDatabaseConnection();
@@ -40,7 +33,6 @@ class Config
     {
         // TODO: Implement successResponse() method.
 
-//        $taskHandler = new Classes\ItemHandler($this->conn);
         $query = "CREATE TABLE IF NOT EXISTS tasks(
                  task_id INT AUTO_INCREMENT PRIMARY KEY,
                  task_title VARCHAR(100) NOT NULL,

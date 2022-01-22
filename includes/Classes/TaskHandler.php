@@ -6,12 +6,12 @@ use Elias\Todo\DB\Config;
 
 class TaskHandler
     {
-
-        protected $row;
         protected $config;
+
         public function __construct(){
             $this->config = new Config();
         }
+
        public function execute_query($query){
 
             return mysqli_query($this->config->conn, $query);

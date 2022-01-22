@@ -26,20 +26,16 @@ class IndexMe {
 
 $obj = new IndexMe();
 
-$list = ["Fist one", "Second One", "Third Todo...."];
 $config = new Config();
 
 ?>
 
 <html>
 <head>
-    <!--    <link rel="stylesheet" type="text/css" href="--><?php //echo CSS_PATH; ?><!--main.css">-->
-    <!--    <script type="text/javascript" src="--><?php //echo JS_PATH; ?><!--main.js"></script>-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <script src="assets/js/custom.js"></script>
-
 </head>
 <body>
 <div class="container">
@@ -58,7 +54,6 @@ $config = new Config();
         <p class="done-title">DONE</p>
         <div id="done-lists" class="todo-lists">
             <?php $obj->get_done_todos() ?>
-
         </div>
     </div
 </div>

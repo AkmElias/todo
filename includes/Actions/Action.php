@@ -4,12 +4,10 @@ namespace Elias\Todo\Actions;
 require '../../vendor/autoload.php';
 
 use Elias\Todo\Classes\TaskHandler;
-use Elias\Todo\DB\Config;
 
 if(isset($_POST['action'])){
 
    $action = new Action();
-
 
     if($_POST['action'] == "load"){
 
@@ -35,8 +33,6 @@ if(isset($_POST['action'])){
          $action->model->delete_task($_POST['id']);
     }
 }
-
-
 
 
 class Action{
