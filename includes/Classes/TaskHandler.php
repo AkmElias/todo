@@ -8,16 +8,19 @@ class TaskHandler
     {
         protected $config;
 
-        public function __construct(){
+        public function __construct()
+        {
             $this->config = new Config();
         }
 
-       public function execute_query($query){
+       public function execute_query($query)
+       {
 
             return mysqli_query($this->config->conn, $query);
        }
 
-       public function get_tasks(){
+       public function get_tasks()
+       {
            // Perform query
            $query = "SELECT * FROM tasks WHERE task_status = 'in_progress'ORDER BY task_id DESC";
 
@@ -27,7 +30,8 @@ class TaskHandler
            echo $html;
        }
 
-       public function get_done_tasks(){
+       public function get_done_tasks()
+       {
 
            $query = "SELECT * FROM tasks WHERE task_status != 'in_progress' ORDER BY task_id DESC";
            $results = $this->execute_query($query);
@@ -37,7 +41,8 @@ class TaskHandler
            echo $html;
        }
 
-       public function get_tasks_html($results){
+       public function get_tasks_html($results)
+       {
 
            $html = '';
 
@@ -58,7 +63,8 @@ class TaskHandler
            return $html;
        }
 
-    public function get_done_tasks_html($results){
+    public function get_done_tasks_html($results)
+    {
 
         $html = '';
 
@@ -78,7 +84,8 @@ class TaskHandler
         return $html;
     }
 
-       public function add_task($task_title, $task_status){
+       public function add_task($task_title, $task_status)
+       {
 
            $query = "INSERT INTO tasks (task_title, task_status) VALUES ('$task_title', '$task_status')";
 
@@ -87,7 +94,8 @@ class TaskHandler
            echo $result;
        }
 
-       public function update_status($id){
+       public function update_status($id)
+       {
 
            $query = "UPDATE tasks SET task_status = 'DONE' WHERE task_id = '$id'";
 
@@ -96,12 +104,13 @@ class TaskHandler
            echo $result;
        }
 
-       public function delete_task($id){
+       public function delete_task($id)
+       {
 
            $query = "DELETE FROM tasks WHERE task_id = '$id'";
 
            $result = $this->execute_query($query);
 
            echo $result;
-    }
+       }
 }

@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor\autoload.php';
+//require 'vendor\autoload.php';
 
 use Elias\Todo\DB\Config;
 use Elias\Todo\Classes\TaskHandler;
@@ -11,14 +11,19 @@ class IndexMe {
 
     public function __construct()
     {
+        require_once __DIR__ . '/vendor/autoload.php';
         $this->model = new TaskHandler();
     }
 
-    public static function get_todos() {
+    //just to check static func
+    public static function get_todos()
+    {
         return (new self)->model->get_tasks();
     }
 
-    public static function get_done_todos(){
+    //just to check static func
+    public static function get_done_todos()
+    {
         return (new self)->model->get_done_tasks();
     }
 

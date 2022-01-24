@@ -3,6 +3,7 @@
 namespace Elias\Todo\DB;
 
 use Elias\Todo\respondToDatabaseConnection;
+//require '../../vendor/autoload.php';
 
 class Config implements respondToDatabaseConnection
 {
@@ -12,13 +13,15 @@ class Config implements respondToDatabaseConnection
     protected $dbname = 'to-do';
     public $conn;
 
-    public function __construct(){
+    public function __construct()
+    {
 
         $this->connectDatabase();
 
     }
 
-    protected function connectDatabase(){
+    protected function connectDatabase()
+    {
 
         $this->conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbname);
 
