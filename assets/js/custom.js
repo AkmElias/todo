@@ -3,8 +3,8 @@ $(document).ready(function ()
   $('#add-button').on('click', function (e)
   {
       e.preventDefault();
-      if($('#task-input').val() !== '')
-      {
+
+      if($('#task-input').val() !== ''){
           const action = "insert";
           const task_title = $('#task-input').val();
           const task_status = "in_progress";

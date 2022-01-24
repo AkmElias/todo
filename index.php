@@ -1,11 +1,9 @@
 <?php
 
-//require 'vendor\autoload.php';
-
 use Elias\Todo\DB\Config;
 use Elias\Todo\Classes\TaskHandler;
 
-class IndexMe {
+class IndexMe{
 
     protected $model;
 
@@ -15,13 +13,13 @@ class IndexMe {
         $this->model = new TaskHandler();
     }
 
-    //just to check static func
+    //just to check static func/can be used as nonstatic(in that case use $this in the place of (new self)
     public static function get_todos()
     {
         return (new self)->model->get_tasks();
     }
 
-    //just to check static func
+    //just to check static func/can be used as nonstatic(in that case use $this in the place of (new self)
     public static function get_done_todos()
     {
         return (new self)->model->get_done_tasks();

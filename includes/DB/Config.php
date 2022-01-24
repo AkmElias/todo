@@ -3,7 +3,6 @@
 namespace Elias\Todo\DB;
 
 use Elias\Todo\respondToDatabaseConnection;
-//require '../../vendor/autoload.php';
 
 class Config implements respondToDatabaseConnection
 {
