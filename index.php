@@ -14,12 +14,12 @@ class IndexMe {
         $this->model = new TaskHandler();
     }
 
-    public function get_todos() {
-        return $this->model->get_tasks();
+    public static function get_todos() {
+        return (new self)->model->get_tasks();
     }
 
-    public function get_done_todos(){
-        return $this->model->get_done_tasks();
+    public static function get_done_todos(){
+        return (new self)->model->get_done_tasks();
     }
 
 }
@@ -48,12 +48,12 @@ $config = new Config();
     </form>
 
     <div id="todo-lists" class="todo-lists">
-        <?php $obj->get_todos(); ?>
+        <?php IndexMe::get_todos(); ?>
     </div>
     <div class="done-section" style="margin-top: 10px;">
         <p class="done-title">DONE</p>
         <div id="done-lists" class="todo-lists">
-            <?php $obj->get_done_todos() ?>
+            <?php IndexMe::get_done_todos() ?>
         </div>
     </div
 </div>
